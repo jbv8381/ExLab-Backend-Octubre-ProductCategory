@@ -9,10 +9,16 @@ const loadModel = (sequelize, DataTypes) => {
     static associate(models) {
       // define association here
       ProductCategory.hasMany(models.Product)
+      // TODO exam: New foreign key association
+      ProductCategory.belongsTo(models.Restaurant, { foreignKey: 'restaurantId', as: 'restaurant' })
+      // TODO exam: END
     }
   }
   ProductCategory.init({
     name: DataTypes.STRING,
+    // TODO exam: New foreign key attribute
+    restaurantId: DataTypes.INTEGER,
+    // TODO exam: END
     createdAt: {
       allowNull: false,
       type: DataTypes.DATE,

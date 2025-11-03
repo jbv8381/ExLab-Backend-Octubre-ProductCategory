@@ -12,3 +12,19 @@ const checkRestaurantExists = async (value, { req }) => {
   }
 }
 
+// TODO exam: implements create and update validations
+const create = [
+  check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
+  check('restaurantId').exists().isInt({ min: 1 }).toInt(),
+  check('restaurantId').custom(checkRestaurantExists)
+]
+
+const update = [
+  check('name').exists().isString().isLength({ min: 1, max: 255 }).trim(),
+  check('restaurantId').exists().isInt({ min: 1 }).toInt(),
+  check('restaurantId').custom(checkRestaurantExists)
+]
+
+// TODO exam: END
+
+export { create, update }

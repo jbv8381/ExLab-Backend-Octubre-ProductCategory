@@ -11,6 +11,19 @@ module.exports = {
         allowNull: false,
         type: Sequelize.STRING
       },
+      // TODO exam: Foreign key for restaurant
+      restaurantId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'Restaurants'
+          },
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
+      // TODO exam: END
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

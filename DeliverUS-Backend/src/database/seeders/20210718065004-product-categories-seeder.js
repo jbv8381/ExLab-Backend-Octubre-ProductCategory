@@ -10,6 +10,7 @@ module.exports = {
      * }], {})
     */
 
+    // TODO exam: add restaurantId to the seed data with de new foreign key
     await queryInterface.bulkInsert('ProductCategories',
       [
         { name: 'Starters', restaurantId: 1 },
@@ -19,6 +20,7 @@ module.exports = {
         { name: 'Desserts', restaurantId: 2 },
         { name: 'Sandwiches', restaurantId: 2 }
       ], {})
+    // TODO exam: END
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -7,6 +7,17 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      restaurantId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: {
+            tableName: 'Restaurants'
+          },
+          key: 'id'
+        },
+        onDelete: 'cascade'
+      },
       name: {
         allowNull: false,
         type: Sequelize.STRING
